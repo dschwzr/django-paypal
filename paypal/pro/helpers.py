@@ -278,4 +278,4 @@ class PayPalWPP(object):
     def _parse_response(self, response):
         """Turn the PayPal response into a dict"""
         q = QueryDict(response, encoding='UTF-8').dict()
-        return {k.lower(): v for k,v in q.items()}
+        return dict((k.lower(), v) for k,v in q.items())
